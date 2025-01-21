@@ -6,11 +6,10 @@ import { useSearchParams } from "react-router-dom";
 const ProductAll = () => {
     const [productLists, setProductLists] = useState([]);
     const [query, setQuery] = useSearchParams();
-    let [error, setError] = useState("");
 
     const getProducts = async () => {
         let keyword = query.get("q") || "";
-        let url = `https://my-json-server.typicode.com/seonyoungg/Shopmall//products?q=${keyword}`;
+        let url = `https://my-json-server.typicode.com/seonyoungg/Shopmall/products?q=${keyword}`;
         let response = await fetch(url);
         let data = await response.json();
         setProductLists(data);
